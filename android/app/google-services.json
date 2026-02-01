@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "573699879745",
+    "project_id": "backend-app-5a564",
+    "storage_bucket": "backend-app-5a564.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:573699879745:android:86c9cc9e2ff8e93bf9e7c0",
+        "android_client_info": {
+          "package_name": "com.adminapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCd6yXSf98q3UC-uGDmcJYFtG6hziIsME8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
