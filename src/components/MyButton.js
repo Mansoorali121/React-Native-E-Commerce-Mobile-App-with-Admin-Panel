@@ -1,14 +1,28 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import React from 'react';
 
-const MyButton = () => {
+const MyButton = ({ title }) => {
   return (
-    <View>
-      <Text>MyButton</Text>
-    </View>
-  )
-}
+    <TouchableOpacity style={styles.container}>
+      <Text style={styles.title}>{title}</Text>
+    </TouchableOpacity>
+  );
+};
 
 export default MyButton;
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  container: {
+    height: 50,
+    width: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#87CEEB',
+    borderRadius: 30,
+  },
+  title: {
+    fontSize: 20,
+    fontWeight: 'semibold',
+    fontFamily: 'Redressed-Regular',
+  },
+});

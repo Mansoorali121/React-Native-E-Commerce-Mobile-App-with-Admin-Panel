@@ -16,7 +16,7 @@ const SignUp = () => {
         <Text style={styles.title}> Commerce App </Text>
         {/* Form Container */}
         <View style={styles.formContainer}>
-          <MyButton/>
+          <MyButton title="login" />
         </View>
       </ImageBackground>
     </View>
@@ -44,9 +44,10 @@ const styles = StyleSheet.create({
     height: 450,
     width: '100%',
     backgroundColor: '#fff',
-    borderRadius:20,
-    justifyContent:"center",
-    alignItems:"center",
-    marginTop:30
+    borderRadius: 20,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 30,
+    paddingHorizontal: 20,
   },
 });
