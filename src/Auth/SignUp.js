@@ -1,6 +1,7 @@
 import { Image, ImageBackground, StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 import MyButton from '../components/MyButton';
+import MytextInput from '../components/MytextInput';
 
 const SignUp = () => {
   return (
@@ -16,6 +17,7 @@ const SignUp = () => {
         <Text style={styles.title}> Commerce App </Text>
         {/* Form Container */}
         <View style={styles.formContainer}>
+          <MytextInput placeholder = "Enter Name" />
           <MyButton title="login" />
         </View>
       </ImageBackground>
