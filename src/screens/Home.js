@@ -1,14 +1,21 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import Myorder from './Myorder';
+import Home from '../screens/Home';
 
-const Home = () => {
+const Tab = createBottomTabNavigator();
+
+const UserStack = () => {
   return (
-    <View>
-      <Text>Home</Text>
-    </View>
-  )
-}
+    <Tab.Navigator>
+      <Tab.Screen name="Home" component={Home} />
 
-export default Home;
+      <Tab.Screen name="Myorder" component={Myorder} />
+    </Tab.Navigator>
+  );
+};
 
-const styles = StyleSheet.create({})
+export default UserStack;
+
+const styles = StyleSheet.create({});
