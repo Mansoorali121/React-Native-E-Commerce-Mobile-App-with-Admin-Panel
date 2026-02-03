@@ -1,4 +1,5 @@
 import {
+  Alert,
   Image,
   ImageBackground,
   StyleSheet,
@@ -6,14 +7,34 @@ import {
   TextInput,
   View,
 } from 'react-native';
-import React from 'react';
+import React, { useState } from 'react';
 import MyButton from '../components/MyButton';
 import MytextInput from '../components/MytextInput';
 import SocialMedia from '../components/SocialMedia';
 import { useNavigation } from '@react-navigation/native';
+import auth from '@react-native-firebase/auth';
 
 const SignUp = () => {
   const navigation = useNavigation();
+  // State to SignUp User
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [Password, setPassword] = useState('');
+  const [userInfo, setUserInfo] = useState([]);
+
+  // Function to Signup through Firebase
+  const Signupuser = () => {
+    try {
+      const userData = auth().signInWithEmailAndPassword({ email, Password });
+      if (!email || !Password) {
+        Alert.alert('Email and Name are requried: ');
+        setUserInfo(userData);
+      }
+    } catch (error) {
+      Alert.alert(error);
+    }
+  };
+
   return (
     <View style={styles.container}>
       <ImageBackground
@@ -27,17 +48,31 @@ const SignUp = () => {
         <Text style={styles.title}> Commerce App </Text>
         {/* Form Container */}
         <View style={styles.formContainer}>
-          <MytextInput placeholder="Enter Email" />
-          <MytextInput placeholder="Enter Name" />
+          <MytextInput
+            placeholder="Enter Name"
+            value={name}
+            onChangeText={setName}
+          />
 
-          <MytextInput placeholder="Enter Password" secureTextEntry />
+          <MytextInput
+            placeholder="Enter Email"
+            value={email}
+            onChangeText={setEmail}
+          />
+
+          <MytextInput
+            placeholder="Enter Password"
+            secureTextEntry
+            value={Password}
+            onChangeText={setPassword}
+          />
           <Text
             style={styles.donthaveText}
             onPress={() => navigation.navigate('Login')}
           >
             Already have an Account?
           </Text>
-          <MyButton title="Signup" />
+          <MyButton title="Signup" onPress={Signupuser} />
           <Text style={styles.ortext}>OR</Text>
           {/* Add Social Media Icons */}
           <SocialMedia />
