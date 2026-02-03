@@ -25,11 +25,19 @@ const Login = () => {
       Alert.alert('Please Fill all the field');
     }
     try {
-      await auth().signInWithEmailAndPassword(email, Password);
+      const userDetails = await auth().signInWithEmailAndPassword(
+        email,
+        Password,
+      );
       Alert.alert('Success', 'User Logged In Successfully');
       setEmail('');
       setPassword('');
-      navigation.navigate("Home")
+      const UserEmail = userDetails.user.email;
+      if (UserEmail === 'admin@gmail.com') {
+        navigation.navigate('AdminStack');
+      } else {
+        navigation.navigate('UserStack');
+      }
     } catch (error) {
       Alert.alert('Error Logging In', error.message);
     }
