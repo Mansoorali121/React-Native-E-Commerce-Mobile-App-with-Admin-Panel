@@ -9,6 +9,7 @@ import {
 import React from 'react';
 import MyButton from '../components/MyButton';
 import MytextInput from '../components/MytextInput';
+import SocialMedia from '../components/SocialMedia';
 
 const SignUp = () => {
   return (
@@ -27,9 +28,13 @@ const SignUp = () => {
           <MytextInput placeholder="Enter Email" />
           <MytextInput placeholder="Enter Name" />
 
-          <MytextInput placeholder="Enter Password"  />
-          <MyButton title="login" />
+          <MytextInput placeholder="Enter Password" secureTextEntry />
+          <Text style={styles.donthaveText}>Already have an Account?</Text>
+          <MyButton title="Signup" />
+           {/* Add Social Media Icons */}
+        <SocialMedia/>
         </View>
+       
       </ImageBackground>
     </View>
   );
@@ -62,4 +67,5 @@ const styles = StyleSheet.create({
     marginTop: 30,
     paddingHorizontal: 20,
   },
+  donthaveText: { alignSelf: 'flex-end', marginRight: 10, marginBottom: 15 },
 });
