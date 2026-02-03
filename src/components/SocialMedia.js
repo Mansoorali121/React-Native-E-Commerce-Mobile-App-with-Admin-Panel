@@ -31,4 +31,5 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   twittericon: { height: 60, width: 60, marginTop: 15 },
+  
 });

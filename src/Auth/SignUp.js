@@ -10,8 +10,10 @@ import React from 'react';
 import MyButton from '../components/MyButton';
 import MytextInput from '../components/MytextInput';
 import SocialMedia from '../components/SocialMedia';
+import { useNavigation } from '@react-navigation/native';
 
 const SignUp = () => {
+  const navigation = useNavigation();
   return (
     <View style={styles.container}>
       <ImageBackground
@@ -29,12 +31,17 @@ const SignUp = () => {
           <MytextInput placeholder="Enter Name" />
 
           <MytextInput placeholder="Enter Password" secureTextEntry />
-          <Text style={styles.donthaveText}>Already have an Account?</Text>
+          <Text
+            style={styles.donthaveText}
+            onPress={() => navigation.navigate('Login')}
+          >
+            Already have an Account?
+          </Text>
           <MyButton title="Signup" />
-           {/* Add Social Media Icons */}
-        <SocialMedia/>
+          <Text style={styles.ortext}>OR</Text>
+          {/* Add Social Media Icons */}
+          <SocialMedia />
         </View>
-       
       </ImageBackground>
     </View>
   );
@@ -67,5 +74,16 @@ const styles = StyleSheet.create({
     marginTop: 30,
     paddingHorizontal: 20,
   },
-  donthaveText: { alignSelf: 'flex-end', marginRight: 10, marginBottom: 15 },
+  donthaveText: {
+    alignSelf: 'flex-end',
+    marginRight: 10,
+    marginBottom: 15,
+    fontFamily: 'NovaFlat-Regular',
+  },
+  ortext: {
+    fontSize: 20,
+    color: 'gray',
+    marginTop: 20,
+    fontFamily: 'Audiowide-Regular',
+  },
 });
