@@ -1,4 +1,11 @@
-import { Image, ImageBackground, StyleSheet, Text, View } from 'react-native';
+import {
+  Image,
+  ImageBackground,
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+} from 'react-native';
 import React from 'react';
 import MyButton from '../components/MyButton';
 import MytextInput from '../components/MytextInput';
@@ -17,7 +24,10 @@ const SignUp = () => {
         <Text style={styles.title}> Commerce App </Text>
         {/* Form Container */}
         <View style={styles.formContainer}>
-          <MytextInput placeholder = "Enter Name" />
+          <MytextInput placeholder="Enter Email" />
+          <MytextInput placeholder="Enter Name" />
+
+          <MytextInput placeholder="Enter Password"  />
           <MyButton title="login" />
         </View>
       </ImageBackground>

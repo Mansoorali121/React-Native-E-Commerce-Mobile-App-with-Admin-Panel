@@ -5,7 +5,7 @@ const MytextInput = ({ ...props }) => {
   return (
     <View style={styles.container}>
       <TextInput style={styles.textinput} {...props} />
-      <View style={styles.border}/>
+      <View style={styles.border} />
     </View>
   );
 };
@@ -18,17 +18,16 @@ const styles = StyleSheet.create({
     width: '100%',
     paddingHorizontal: 10,
     justifyContent: 'center',
-    marginBottom:20
+    marginBottom: 20,
   },
   textinput: {
     width: '100%',
     height: 50,
   },
-  border:{
-    
-    width:"100%",
-    backgroundColor:"gray",
-    height:1,
-    alignSelf:"center"
-  }
+  border: {
+    width: '100%',
+    backgroundColor: 'gray',
+    height: 1,
+    alignSelf: 'center',
+  },
 });
