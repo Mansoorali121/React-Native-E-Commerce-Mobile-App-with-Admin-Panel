@@ -1,4 +1,5 @@
 import {
+  Alert,
   Image,
   ImageBackground,
   StyleSheet,
@@ -6,14 +7,33 @@ import {
   TextInput,
   View,
 } from 'react-native';
-import React from 'react';
+import React, { useState } from 'react';
 import MyButton from '../components/MyButton';
 import MytextInput from '../components/MytextInput';
 import SocialMedia from '../components/SocialMedia';
 import { useNavigation } from '@react-navigation/native';
+import auth from '@react-native-firebase/auth';
 
 const Login = () => {
   const navigation = useNavigation();
+  const [email, setEmail] = useState('');
+  const [Password, setPassword] = useState('');
+  //  Login User Function
+
+  const LoginUser = async () => {
+    if (!email || !Password) {
+      Alert.alert('Please Fill all the field');
+    }
+    try {
+      await auth().signInWithEmailAndPassword(email, Password);
+      Alert.alert('Success', 'User Logged In Successfully');
+      setEmail('');
+      setPassword('');
+      navigation.navigate("Home")
+    } catch (error) {
+      Alert.alert('Error Logging In', error.message);
+    }
+  };
   return (
     <View style={styles.container}>
       <ImageBackground
@@ -27,17 +47,26 @@ const Login = () => {
         <Text style={styles.title}> Commerce App </Text>
         {/* Form Container */}
         <View style={styles.formContainer}>
-          <MytextInput placeholder="Enter Email" />
+          <MytextInput
+            placeholder="Enter Email"
+            value={email}
+            onChangeText={setEmail}
+          />
           {/* <MytextInput placeholder="Enter Name" /> */}
 
-          <MytextInput placeholder="Enter Password" secureTextEntry />
+          <MytextInput
+            placeholder="Enter Password"
+            secureTextEntry
+            value={Password}
+            onChangeText={setPassword}
+          />
           <Text
             style={styles.donthaveText}
             onPress={() => navigation.goBack('SignUp')}
           >
             Dont have an Account?
           </Text>
-          <MyButton title="Login" />
+          <MyButton title="Login" onPress={LoginUser} />
           <Text style={styles.ortext}>OR</Text>
           {/* Add Social Media Icons */}
           <SocialMedia />

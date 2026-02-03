@@ -23,15 +23,19 @@ const SignUp = () => {
   const [userInfo, setUserInfo] = useState([]);
 
   // Function to Signup through Firebase
-  const Signupuser = () => {
+  const Signupuser = async() => {
+    if (!name || !email || !Password) {
+      Alert.alert('Error', 'All fields are required');
+    }
     try {
-      const userData = auth().signInWithEmailAndPassword({ email, Password });
-      if (!email || !Password) {
-        Alert.alert('Email and Name are requried: ');
-        setUserInfo(userData);
-      }
+      const userData = await auth().createUserWithEmailAndPassword(email, Password);
+      setUserInfo(userData);
+      Alert.alert('Success', 'Account Created Successfully');
+      setName('');
+      setEmail('');
+      setPassword('');
     } catch (error) {
-      Alert.alert(error);
+      Alert.alert('Sign Up Error', error.messaage);
     }
   };
 
