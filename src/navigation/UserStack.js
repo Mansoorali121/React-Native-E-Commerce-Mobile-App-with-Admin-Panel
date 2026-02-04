@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Image } from 'react-native';
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -12,29 +12,53 @@ const UserStack = () => {
   return (
     <Tab.Navigator
       screenOptions={{
+        headerShown: false,
+        tabBarShowLabel: true,
+        tabBarActiveTintColor: 'black',
+        tabBarInactiveTintColor: 'gray',
+        tabBarStyle: {
+          backgroundColor: '#fff',
+          height: 60,
+          paddingBottom: 8,
+          // Line Remove
+          borderTopWidth: 0,
+          elevation: 0,
+          shadowOpacity: 0,
+        },
         tabBarLabelStyle: {
           fontSize: 12,
-          fontFamily: 'Langar-Regular',
-          fontWeight: 300,
+          fontWeight: '600',
         },
-        tabBarBackground: () => (
-          <BlurView
-            tint="light"
-            intensity={100}
-            style={StyleSheet.absoluteFill}
-          />
-        ),
+        tabBarIconStyle: {
+          marginTop: 5,
+        },
       }}
     >
       <Tab.Screen
+        options={{
+          headerShown: false,
+          tabBarIcon: ({ focused }) => (
+            <Image
+              source={require('../assets/home-button.png')}
+              style={{ width: 24, height: 24 }}
+            />
+          ),
+        }}
         name="Home"
         component={Home}
-        options={{ headerShown: false }}
       />
       <Tab.Screen
         name="Myorder"
         component={Myorder}
-        options={{ headerShown: false }}
+        options={{
+          headerShown: false,
+          tabBarIcon: ({ focused }) => (
+            <Image
+              source={require('../assets/trolley.png')}
+              style={{ width: 24, height: 24 }}
+            />
+          ),
+        }}
       />
     </Tab.Navigator>
   );
