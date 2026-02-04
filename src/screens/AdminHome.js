@@ -3,7 +3,7 @@ import React from 'react'
 
 const AdminHome = () => {
   return (
-    <View>
+    <View style={styles.container}>
       <Text>AdminHome</Text>
     </View>
   )
@@ -11,4 +11,6 @@ const AdminHome = () => {
 
 export default AdminHome;
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  container:{flex:1,backgroundColor:"#fff"},
+})
