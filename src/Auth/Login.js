@@ -16,32 +16,36 @@ import auth from '@react-native-firebase/auth';
 
 const Login = () => {
   const navigation = useNavigation();
+  // State to SignUp User
+  // const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [Password, setPassword] = useState('');
-  //  Login User Function
+  const [userInfo, setUserInfo] = useState([]);
 
-  const LoginUser = async () => {
+  // Function to Signup through Firebase
+  const Loginuser = async () => {
     if (!email || !Password) {
-      Alert.alert('Please Fill all the field');
+      Alert.alert('Error', 'All fields are required');
+      return;
     }
+
     try {
-      const userDetails = await auth().signInWithEmailAndPassword(
-        email,
-        Password,
-      );
-      Alert.alert('Success', 'User Logged In Successfully');
+      const userData = await auth().signInWithEmailAndPassword(email, Password);
+
+      console.log(userData);
+      setUserInfo(userData);
       setEmail('');
       setPassword('');
-      const UserEmail = userDetails.user.email;
-      if (UserEmail === 'admin@gmail.com') {
-        navigation.navigate('AdminStack');
-      } else {
-        navigation.navigate('UserStack');
-      }
+      Alert.alert('Success', 'User Logged in Successfully');
+      navigation.navigate('UserStack');
+
+      // yahan navigation bhi kar sakte ho
+      // navigation.navigate('Home');
     } catch (error) {
-      Alert.alert('Error Logging In', error.message);
+      Alert.alert('Error', error.message);
     }
   };
+
   return (
     <View style={styles.container}>
       <ImageBackground
@@ -60,7 +64,6 @@ const Login = () => {
             value={email}
             onChangeText={setEmail}
           />
-          {/* <MytextInput placeholder="Enter Name" /> */}
 
           <MytextInput
             placeholder="Enter Password"
@@ -68,13 +71,10 @@ const Login = () => {
             value={Password}
             onChangeText={setPassword}
           />
-          <Text
-            style={styles.donthaveText}
-            onPress={() => navigation.goBack('SignUp')}
-          >
+          <Text style={styles.donthaveText} onPress={() => navigation.goBack()}>
             Dont have an Account?
           </Text>
-          <MyButton title="Login" onPress={LoginUser} />
+          <MyButton title="Login" onPress={Loginuser} />
           <Text style={styles.ortext}>OR</Text>
           {/* Add Social Media Icons */}
           <SocialMedia />
