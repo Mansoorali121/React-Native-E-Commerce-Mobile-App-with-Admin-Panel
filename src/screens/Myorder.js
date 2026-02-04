@@ -3,7 +3,7 @@ import React from 'react'
 
 const Myorder = () => {
   return (
-    <View>
+    <View style={styles.container}>
       <Text>Myorder</Text>
     </View>
   )
@@ -11,4 +11,6 @@ const Myorder = () => {
 
 export default Myorder;
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  container:{flex:1,backgroundColor:"#fff"},
+})
