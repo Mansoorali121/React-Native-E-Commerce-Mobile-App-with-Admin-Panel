@@ -1,39 +1,26 @@
-// import { StyleSheet, Text, View } from 'react-native';
-// import React from 'react';
-// import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-// import Myorder from './Myorder';
-// import Home from '../screens/Home';
-
-// const Tab = createBottomTabNavigator();
-
-// const UserStack = () => {
-//   return (
-//     <Tab.Navigator>
-//       <Tab.Screen name="Home" component={Home} />
-
-//       <Tab.Screen name="Myorder" component={Myorder} />
-//     </Tab.Navigator>
-//   );
-// };
-
-// export default UserStack;
-
-// const styles = StyleSheet.create({});
-
-
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import { StyleSheet, Text, View } from 'react-native';
+import React, { useEffect } from 'react';
+import firestore from '@react-native-firebase/firestore';
 
 const Home = () => {
+  // Function to Fetch Data for user
+  const GetClothesData = async () => {
+    const Clothdata = await firestore().collection('clothes').get();
+    console.log(Clothdata);
+  };
+
+  useEffect(() => {
+    GetClothesData();
+  }, []);
   return (
     <View style={styles.container}>
       <Text>Home</Text>
     </View>
-  )
-}
+  );
+};
 
 export default Home;
 
 const styles = StyleSheet.create({
-  container:{flex:1,backgroundColor:"#fff"}
-})
+  container: { flex: 1, backgroundColor: '#fff' },
+});
