@@ -1,12 +1,16 @@
 import { StyleSheet, Text, View } from 'react-native';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import firestore from '@react-native-firebase/firestore';
+import UserMenu from '../components/UserMenu';
+import SearchButton from '../components/SearchButton';
 
 const Home = () => {
+  const [Itemdata,setItemData] = useState([]);
   // Function to Fetch Data for user
   const GetClothesData = async () => {
     const Clothdata = await firestore().collection('clothes').get();
-    console.log(Clothdata);
+    // console.log(Clothdata.docs[0].data());
+    setItemData(Clothdata);
   };
 
   useEffect(() => {
@@ -14,7 +18,8 @@ const Home = () => {
   }, []);
   return (
     <View style={styles.container}>
-      <Text>Home</Text>
+      <UserMenu/>
+      <SearchButton/>
     </View>
   );
 };
