@@ -1,13 +1,11 @@
 import { Image, StyleSheet, Text, View } from 'react-native';
 import React from 'react';
+import { SearchIconAdd } from '../assets/icons';
 
 const SearchButton = () => {
   return (
     <View style={styles.container}>
-      <Image
-        source={require('../assets/plus.png')}
-        style={{ height: 24, width: 24 }}
-      />
+      <SearchIconAdd/>
     </View>
   );
 };
@@ -19,7 +17,7 @@ const styles = StyleSheet.create({
     height: 32,
     width: 32,
     borderRadius: 16,
-    backgroundColor: '#ECF0F4',
+    // backgroundColor: '#ECF0F4',
     justifyContent: 'center',
     alignItems: 'center',
   },
