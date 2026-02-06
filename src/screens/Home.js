@@ -4,6 +4,7 @@ import firestore from '@react-native-firebase/firestore';
 import SearchButton from '../components/SearchButton';
 import UserMenu from '../components/UserMenu';
 import Mycards from '../components/Mycards';
+import ItemsCard from '../components/ItemsCard';
 
 const Home = () => {
   const [Itemdata, setItemData] = useState([]);
@@ -27,8 +28,10 @@ const Home = () => {
       <Text style={styles.hellotext}>Hello Folla</Text>
       <Text style={styles.helloblurtext}>Let's start shopping</Text>
       {/* My Card  */}
-        <Mycards />
-   
+      <Mycards />
+      <View style={{marginBottom:15}}/>
+      {/* Items Card */}
+      <ItemsCard />
     </View>
   );
 };
@@ -51,5 +54,4 @@ const styles = StyleSheet.create({
     marginBottom: 6,
   },
   helloblurtext: { fontFamily: 'Raleway-VariableFont_wght', fontSize: 12 },
-
 });
