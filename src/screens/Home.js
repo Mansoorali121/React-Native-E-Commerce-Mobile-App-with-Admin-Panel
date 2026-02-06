@@ -40,9 +40,19 @@ const Home = () => {
         showsVerticalScrollIndicator={false}
         numColumns={2}
         data={Itemdata}
-        columnWrapperStyle={{ marginBottom: 10 , justifyContent:"space-between"}}
+        columnWrapperStyle={{
+          marginBottom: 10,
+          justifyContent: 'space-between',
+        }}
         keyExtractor={item => item.id}
-        renderItem={({ item }) => <ItemsCard />}
+        renderItem={({ item }) => (
+          <ItemsCard
+            title={item.title}
+            price={item.price}
+            rating={item.rating}
+            image_url={item.image_url}
+          />
+        )}
       />
     </View>
   );
