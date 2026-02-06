@@ -24,8 +24,8 @@ export default ItemsCard;
 
 const styles = StyleSheet.create({
   container: {
-    width: 174,
-    height: 184,
+    width: 152,
+    height: 164,
     borderRadius: 15,
     backgroundColor: '#87CEEB',
     alignItems: 'center',

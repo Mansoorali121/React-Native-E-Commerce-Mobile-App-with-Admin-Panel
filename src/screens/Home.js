@@ -12,9 +12,9 @@ const Home = () => {
   const GetClothesData = async () => {
     const snapshot = await firestore().collection('clothes').get();
     const clothesList = snapshot.docs.map(doc => ({
-    id: doc.id,
-    ...doc.data(),
-  }));
+      id: doc.id,
+      ...doc.data(),
+    }));
     // console.log(Clothdata.docs[0].data());
     setItemData(clothesList);
   };
@@ -37,9 +37,12 @@ const Home = () => {
       {/* Items Card */}
       {/* <ItemsCard /> */}
       <FlatList
+        showsVerticalScrollIndicator={false}
+        numColumns={2}
         data={Itemdata}
+        columnWrapperStyle={{ marginBottom: 10 , justifyContent:"space-between"}}
         keyExtractor={item => item.id}
-        renderItem={({item})=> <ItemsCard/>}
+        renderItem={({ item }) => <ItemsCard />}
       />
     </View>
   );
