@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { FlatList, StyleSheet, Text, View } from 'react-native';
 import React, { useEffect, useState } from 'react';
 import firestore from '@react-native-firebase/firestore';
 import SearchButton from '../components/SearchButton';
@@ -10,9 +10,13 @@ const Home = () => {
   const [Itemdata, setItemData] = useState([]);
   // Function to Fetch Data for user
   const GetClothesData = async () => {
-    const Clothdata = await firestore().collection('clothes').get();
+    const snapshot = await firestore().collection('clothes').get();
+    const clothesList = snapshot.docs.map(doc => ({
+    id: doc.id,
+    ...doc.data(),
+  }));
     // console.log(Clothdata.docs[0].data());
-    setItemData(Clothdata);
+    setItemData(clothesList);
   };
 
   useEffect(() => {
@@ -29,9 +33,14 @@ const Home = () => {
       <Text style={styles.helloblurtext}>Let's start shopping</Text>
       {/* My Card  */}
       <Mycards />
-      <View style={{marginBottom:15}}/>
+      <View style={{ marginBottom: 15 }} />
       {/* Items Card */}
-      <ItemsCard />
+      {/* <ItemsCard /> */}
+      <FlatList
+        data={Itemdata}
+        keyExtractor={item => item.id}
+        renderItem={({item})=> <ItemsCard/>}
+      />
     </View>
   );
 };
