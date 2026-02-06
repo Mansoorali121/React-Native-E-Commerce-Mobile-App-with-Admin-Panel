@@ -6,6 +6,7 @@ import Login from '../Auth/Login';
 import SignUp from '../Auth/SignUp';
 import UserStack from './UserStack';
 import AdminStack from './AdminStack';
+import ProductDetail from '../screens/ProductDetail';
 
 const Stack = createNativeStackNavigator();
 
@@ -32,6 +33,11 @@ const StackNavigation = () => {
         <Stack.Screen
           name="UserStack"
           component={UserStack}
+          options={{ headerShown: false }}
+        />
+          <Stack.Screen
+          name="ProductDetail"
+          component={ProductDetail}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>

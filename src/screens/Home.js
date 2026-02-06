@@ -47,6 +47,7 @@ const Home = () => {
         keyExtractor={item => item.id}
         renderItem={({ item }) => (
           <ItemsCard
+          item={item}
             title={item.title}
             price={item.price}
             rating={item.rating}
