@@ -1,5 +1,6 @@
 import { Image, StyleSheet, Text, View } from 'react-native';
 import React from 'react';
+import MyButton from '../components/MyButton';
 
 const ProductDetail = ({ route }) => {
   const { item } = route.params;
@@ -13,9 +14,13 @@ const ProductDetail = ({ route }) => {
         <Text style={styles.price}>$ {item.price}</Text>
         <Text style={styles.rating}>{item.rating} (120 Reviews)</Text>
       </View>
-      <View>
-        <Text>Product Description</Text>
-        
+      <View style={styles.footercontainer}>
+        <Text style={styles.descriptiontitle}> Product Description</Text>
+        <Text style={styles.descriptionText}>
+          Comfortable and breathable cotton T-shirt.Perfect for everyday
+          wear.Available in various sizes and colors.
+        </Text>
+        <MyButton title="order" />
       </View>
     </View>
   );
@@ -36,7 +41,7 @@ const styles = StyleSheet.create({
   itemtitle: {
     textAlign: 'center',
     marginTop: 10,
-    fontSize: 20,
+    fontSize: 22,
     fontWeight: 'semibold',
     fontFamily: 'NovaFlat-Regular',
     marginBottom: 15,
@@ -50,9 +55,22 @@ const styles = StyleSheet.create({
   pricecontainer: { flexDirection: 'row', justifyContent: 'space-evenly' },
   price: {
     color: 'green',
-    fontSize: 16,
+    fontSize: 18,
     fontWeight: 'bold',
     fontFamily: 'Audiowide-Regular',
   },
-  rating: { fontSize: 16, fontFamily: 'NovaFlat-Regular' },
+  rating: { fontSize: 14, fontFamily: 'NovaFlat-Regular', marginStart: 30 },
+  footercontainer: { marginTop: 40 },
+  descriptiontitle: {
+    fontWeight: 'bold',
+    fontSize: 18,
+    fontFamily: 'Redressed-Regular',
+    marginBottom: 10,
+  },
+  descriptionText: {
+    fontSize: 14,
+    color: 'gray',
+    marginStart: 5,
+    marginBottom: 50,
+  },
 });
