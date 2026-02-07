@@ -9,6 +9,14 @@ const ProductDetail = ({ route }) => {
         <Image source={{ uri: item.image_url }} style={styles.productimage} />
       </View>
       <Text style={styles.itemtitle}>{item.title}</Text>
+      <View style={styles.pricecontainer}>
+        <Text style={styles.price}>$ {item.price}</Text>
+        <Text style={styles.rating}>{item.rating} (120 Reviews)</Text>
+      </View>
+      <View>
+        <Text>Product Description</Text>
+        
+      </View>
     </View>
   );
 };
@@ -25,11 +33,26 @@ const styles = StyleSheet.create({
     height: 350,
     borderRadius: 20,
   },
-  itemtitle: { textAlign: 'center', marginTop: 10, fontSize:20,fontWeight:"semibold" , fontFamily:"NovaFlat-Regular"},
+  itemtitle: {
+    textAlign: 'center',
+    marginTop: 10,
+    fontSize: 20,
+    fontWeight: 'semibold',
+    fontFamily: 'NovaFlat-Regular',
+    marginBottom: 15,
+  },
   productimage: {
     height: 300,
     width: 300,
     borderRadius: 20,
     resizeMode: 'stretch',
   },
+  pricecontainer: { flexDirection: 'row', justifyContent: 'space-evenly' },
+  price: {
+    color: 'green',
+    fontSize: 16,
+    fontWeight: 'bold',
+    fontFamily: 'Audiowide-Regular',
+  },
+  rating: { fontSize: 16, fontFamily: 'NovaFlat-Regular' },
 });
