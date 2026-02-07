@@ -1,9 +1,23 @@
-import { Image, StyleSheet, Text, View } from 'react-native';
+import { Alert, Image, StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 import MyButton from '../components/MyButton';
+import firestore from '@react-native-firebase/firestore';
+import { useNavigation } from '@react-navigation/native';
 
 const ProductDetail = ({ route }) => {
   const { item } = route.params;
+  const navigation = useNavigation();
+
+  // Add Order Function
+  const Addorder = () => {
+    firestore().collection('orders').add({
+      title: item.title,
+      price: item.price,
+      rating: item.rating,
+    });
+    Alert.alert('order placed successfully');
+    navigation.goBack('Home');
+  };
   return (
     <View style={styles.container}>
       <View style={styles.imagecontainer}>
@@ -12,7 +26,7 @@ const ProductDetail = ({ route }) => {
       <Text style={styles.itemtitle}>{item.title}</Text>
       <View style={styles.pricecontainer}>
         <Text style={styles.price}>$ {item.price}</Text>
-        <Text style={styles.rating}>{item.rating} (120 Reviews)</Text>
+        <Text style={styles.rating}>⭐⭐ {item.rating} (120 Reviews)</Text>
       </View>
       <View style={styles.footercontainer}>
         <Text style={styles.descriptiontitle}> Product Description</Text>
@@ -20,7 +34,7 @@ const ProductDetail = ({ route }) => {
           Comfortable and breathable cotton T-shirt.Perfect for everyday
           wear.Available in various sizes and colors.
         </Text>
-        <MyButton title="order" />
+        <MyButton title="place order" onPress={Addorder} />
       </View>
     </View>
   );
