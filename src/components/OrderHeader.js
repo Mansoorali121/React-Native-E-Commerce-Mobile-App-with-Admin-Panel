@@ -19,5 +19,9 @@ const styles = StyleSheet.create({
     marginTop: 40,
     justifyContent: 'space-between',
   },
-  ordertext: { fontSize: 24, fontFamily: 'Audiowide-Regular' },
+  ordertext: {
+    fontSize: 24,
+    fontFamily: 'Audiowide-Regular',
+    marginBottom: 20,
+  },
 });
