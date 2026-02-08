@@ -2,12 +2,14 @@ import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 import OrderHeader from '../components/OrderHeader';
 import Toptabs from '../components/Toptabs';
+import Ordercard from '../components/Ordercard';
 
 const Myorder = () => {
   return (
     <View style={styles.container}>
       <OrderHeader />
       <Toptabs />
+      <Ordercard />
     </View>
   );
 };

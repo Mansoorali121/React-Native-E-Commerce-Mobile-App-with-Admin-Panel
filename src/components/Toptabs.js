@@ -50,6 +50,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     justifyContent: 'center',
     alignItems: 'center',
+    
   },
-  tabtext: { color: '#000' },
+  tabtext: { color: '#000', fontFamily: 'Langar-Regular' },
 });
