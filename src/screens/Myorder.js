@@ -1,16 +1,17 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import OrderHeader from '../components/OrderHeader';
 
 const Myorder = () => {
   return (
     <View style={styles.container}>
-      <Text>Myorder</Text>
+      <OrderHeader />
     </View>
-  )
-}
+  );
+};
 
 export default Myorder;
 
 const styles = StyleSheet.create({
-  container:{flex:1,backgroundColor:"#fff"},
-})
+  container: { flex: 1, backgroundColor: '#fff', paddingHorizontal:20 },
+});
