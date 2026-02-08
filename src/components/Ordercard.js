@@ -1,10 +1,34 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import React from 'react';
 
 const Ordercard = () => {
   return (
     <View style={styles.container}>
-      <Text>Ordercard</Text>
+      <View style={styles.cardcontainer}>
+        <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+          <Text style={styles.order}>
+            Order ID <Text style={styles.orderid}>#12345</Text>
+          </Text>
+          <TouchableOpacity style={styles.processingButton}>
+            <Text style={styles.btntext}>Processing</Text>
+          </TouchableOpacity>
+          {/* <Text style={{flex:1}}> Processing</Text> */}
+        </View>
+
+        <Image
+          source={require('../assets/SocialMediaIcons/facebook.png')}
+          style={styles.image}
+        />
+        <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+          <Text style={styles.title}>Product Title </Text>
+          <Text style={styles.price}> Total Price $5</Text>
+        </View>
+        <View style={styles.trackorder}>
+          <TouchableOpacity style={styles.trackingbutton}>
+            <Text>Track Order</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
     </View>
   );
 };
@@ -12,5 +36,36 @@ const Ordercard = () => {
 export default Ordercard;
 
 const styles = StyleSheet.create({
-  container: { backgroundColor: 'red', height: 200, width: 200, marginTop: 20 },
+  container: {
+    backgroundColor: '#F8F8F8',
+    height: 200,
+    width: 320,
+    marginTop: 20,
+    borderRadius: 20,
+  },
+  cardcontainer: { paddingHorizontal: 20, marginTop: 10 },
+  image: { height: 80, width: 80, marginTop: 10, marginBottom: 5 },
+  order: { fontFamily: 'NovaFlat-Regular', fontSize: 14 },
+  orderid: { color: 'green', fontWeight: 'semibold' },
+  processingButton: {
+    backgroundColor: '#f3dcd0',
+    borderRadius: 12,
+    padding: 2,
+    height: 20,
+    width: 70,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  btntext: { color: 'gray', fontSize: 12, fontFamily: 'Langar-Regular' },
+  title: { fontSize: 16, fontFamily: 'Redressed-Regular', fontWeight: '300' },
+  price: { fontSize: 16, fontFamily: 'Redressed-Regular', fontWeight: '300' },
+  trackorder: { left: 200, top: 10 },
+  trackingbutton: {
+    height: 30,
+    width: 100,
+    backgroundColor: 'green',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius:14
+  },
 });
