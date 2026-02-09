@@ -5,7 +5,7 @@ import Toptabs from '../components/Toptabs';
 import Ordercard from '../components/Ordercard';
 import firestore from '@react-native-firebase/firestore';
 
-const Myorder = () => {
+const Myorder = ({item}) => {
   const [orderData, setorderData] = useState([]);
 
   const Fetchorders = async () => {
@@ -31,7 +31,9 @@ const Myorder = () => {
        <FlatList
         data={orderData}
         keyExtractor={item => item.id}
-        renderItem={({ item }) => <Ordercard />}
+        renderItem={({ item }) => <Ordercard 
+        item={item.title}
+        />}
       />
      </View>
     </View>
