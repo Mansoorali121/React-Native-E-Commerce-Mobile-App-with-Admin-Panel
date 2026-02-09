@@ -25,7 +25,7 @@ const Ordercard = () => {
         </View>
         <View style={styles.trackorder}>
           <TouchableOpacity style={styles.trackingbutton}>
-            <Text>Track Order</Text>
+            <Text style={{ color: '#fff' }}>Track Order</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -59,13 +59,13 @@ const styles = StyleSheet.create({
   btntext: { color: 'gray', fontSize: 12, fontFamily: 'Langar-Regular' },
   title: { fontSize: 16, fontFamily: 'Redressed-Regular', fontWeight: '300' },
   price: { fontSize: 16, fontFamily: 'Redressed-Regular', fontWeight: '300' },
-  trackorder: { left: 200, top: 10 },
+  trackorder: { left: 180, top: 10 },
   trackingbutton: {
     height: 30,
     width: 100,
     backgroundColor: 'green',
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius:14
+    borderRadius: 14,
   },
 });
