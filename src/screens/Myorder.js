@@ -29,6 +29,7 @@ const Myorder = () => {
       {/* <Ordercard /> */}
        <FlatList
        showsVerticalScrollIndicator={false}
+       
         data={orderData}
         keyExtractor={item => item.id}
         renderItem={({ item }) => <Ordercard 

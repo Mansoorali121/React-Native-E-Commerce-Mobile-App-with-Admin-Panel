@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
   price: { fontFamily: 'NovaFlat-Regular', fontSize: 12, marginTop: 5 },
   rating: { fontSize: 12, fontFamily: 'Redressed-Regular', marginTop: 2 },
   viewmorebutton: {
-    backgroundColor: '#50D63B',
+    backgroundColor: '#87CEEB',
     height: 20,
     width: 70,
     borderRadius: 17,

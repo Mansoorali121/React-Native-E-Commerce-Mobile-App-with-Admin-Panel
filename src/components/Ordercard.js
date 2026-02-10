@@ -25,7 +25,7 @@ const Ordercard = ({title, price, image_url}) => {
         </View>
         <View style={styles.trackorder}>
           <TouchableOpacity style={styles.trackingbutton}>
-            <Text style={{ color: '#fff' }}>Track Order</Text>
+            <Text style={{ color: '#000' }}>Track Order</Text>
 
           </TouchableOpacity>
          
@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
   trackingbutton: {
     height: 30,
     width: 100,
-    backgroundColor: 'green',
+    backgroundColor: '#87CEEB',
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 14,
