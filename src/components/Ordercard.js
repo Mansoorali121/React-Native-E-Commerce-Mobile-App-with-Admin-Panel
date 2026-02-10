@@ -1,7 +1,7 @@
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import React from 'react';
 
-const Ordercard = () => {
+const Ordercard = ({title, price, image_url}) => {
   return (
     <View style={styles.container}>
       <View style={styles.cardcontainer}>
@@ -16,17 +16,19 @@ const Ordercard = () => {
         </View>
 
         <Image
-          source={require('../assets/SocialMediaIcons/facebook.png')}
+          source={{uri:image_url}}
           style={styles.image}
         />
         <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-          <Text style={styles.title}>Product Title </Text>
-          <Text style={styles.price}> Total Price $5</Text>
+          <Text style={styles.title}>{title} </Text>
+          <Text style={styles.price}> Total Price {price}</Text>
         </View>
         <View style={styles.trackorder}>
           <TouchableOpacity style={styles.trackingbutton}>
             <Text style={{ color: '#fff' }}>Track Order</Text>
+
           </TouchableOpacity>
+         
         </View>
       </View>
     </View>
@@ -44,7 +46,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
   },
   cardcontainer: { paddingHorizontal: 20, marginTop: 10 },
-  image: { height: 80, width: 80, marginTop: 10, marginBottom: 5 },
+  image: { height: 80, width: 80, marginTop: 10, marginBottom: 5, resizeMode:"stretch", borderRadius:14 },
   order: { fontFamily: 'NovaFlat-Regular', fontSize: 14 },
   orderid: { color: 'green', fontWeight: 'semibold' },
   processingButton: {
@@ -57,7 +59,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   btntext: { color: 'gray', fontSize: 12, fontFamily: 'Langar-Regular' },
-  title: { fontSize: 16, fontFamily: 'Redressed-Regular', fontWeight: '300' },
+  title: { fontSize: 16, fontFamily: 'Redressed-Regular', fontWeight: '300',left:10 },
   price: { fontSize: 16, fontFamily: 'Redressed-Regular', fontWeight: '300' },
   trackorder: { left: 180, top: 10 },
   trackingbutton: {

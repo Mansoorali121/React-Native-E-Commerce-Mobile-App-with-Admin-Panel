@@ -27,15 +27,17 @@ const Myorder = () => {
       <OrderHeader />
       <Toptabs />
       {/* <Ordercard /> */}
-     <View>   
        <FlatList
+       showsVerticalScrollIndicator={false}
         data={orderData}
         keyExtractor={item => item.id}
         renderItem={({ item }) => <Ordercard 
+        title={item.title}
+        price={item.price}
+        image_url={item.image_url}
         
         />}
       />
-     </View>
     </View>
   );
 };
