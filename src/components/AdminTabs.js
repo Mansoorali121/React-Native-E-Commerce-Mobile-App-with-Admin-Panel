@@ -36,9 +36,9 @@ export default AdminTabs;
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#F5F5F4',
+    backgroundColor: '#f6f9ff',
     borderRadius: 12,
-    height: 40,
+    height: 30,
     flexDirection: 'row',
     marginTop: 20,
     marginHorizontal: 15,
@@ -46,9 +46,9 @@ const styles = StyleSheet.create({
     padding: 4,
   },
   tabButtoon: {
-    height: 32,
+    height: 22,
     flex: 1,
-    borderRadius: 8,
+    borderRadius: 10,
     justifyContent: 'center',
     alignItems: 'center',
   },

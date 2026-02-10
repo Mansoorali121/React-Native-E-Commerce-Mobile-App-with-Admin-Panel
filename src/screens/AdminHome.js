@@ -2,6 +2,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 import AdminHeader from '../components/AdminHeader';
 import AdminTabs from '../components/AdminTabs';
+import Adminordercard from '../components/Adminordercard';
 
 const AdminHome = () => {
   return (
@@ -12,6 +13,7 @@ const AdminHome = () => {
       <View style={{ paddingHorizontal: 10 }}>
         <AdminHeader />
         <AdminTabs />
+        <Adminordercard />
       </View>
     </View>
   );
