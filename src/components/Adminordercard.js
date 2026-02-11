@@ -31,44 +31,12 @@ const Adminordercard = ({ address, Number, title, price }) => {
             </Text>
           </Text>
         </View>
-        <Text
-          style={{ left: 220, fontFamily: 'NovaFlat-Regular', fontSize: 12 }}
-        >
-          {title}
-        </Text>
-        <View
-          style={{
-            marginHorizontal: 10,
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            marginTop: 40,
-          }}
-        >
-          <TouchableOpacity
-            style={{
-              height: 25,
-              width: 100,
-              backgroundColor: '#f6f9ff',
-              alignItems: 'center',
-              justifyContent: 'center',
-              borderWidth: 1,
-              borderRadius: 5,
-            }}
-          >
+        <Text style={styles.title}>{title}</Text>
+        <View style={styles.buttoncontainer}>
+          <TouchableOpacity style={styles.editorder}>
             <Text>Edit order</Text>
           </TouchableOpacity>
-          <View
-            style={{
-              height: 25,
-              width: 100,
-              backgroundColor: '#87CEEB',
-              alignItems: 'center',
-              justifyContent: 'center',
-              borderWidth: 1,
-              borderRadius: 5,
-              marginBottom: 20,
-            }}
-          >
+          <View style={styles.chanebtn}>
             <Text style={{ color: 'red' }}>Change Status </Text>
           </View>
         </View>
@@ -94,4 +62,30 @@ const styles = StyleSheet.create({
     marginTop: 10,
     marginBottom: 10,
   },
+  chanebtn: {
+    height: 25,
+    width: 100,
+    backgroundColor: '#87CEEB',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderWidth: 1,
+    borderRadius: 5,
+    marginBottom: 20,
+  },
+  editorder: {
+    height: 25,
+    width: 100,
+    backgroundColor: '#f6f9ff',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderWidth: 1,
+    borderRadius: 5,
+  },
+  buttoncontainer: {
+    marginHorizontal: 10,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginTop: 40,
+  },
+  title: { left: 220, fontFamily: 'NovaFlat-Regular', fontSize: 12 },
 });

@@ -5,9 +5,14 @@ import { BackArrow } from '../assets/icons';
 const AddProductHeader = () => {
   return (
     <View style={styles.container}>
-      <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-        <Text>AddProductHeader</Text>
-        <Image source={require('../assets/manager.png')} style={styles.image} />
+      <View style={styles.headercontainer}>
+        <Text style={styles.addtext}>Add New Product</Text>
+        <View style={styles.imagecontainer}>
+          <Image
+            source={require('../assets/manager.png')}
+            style={styles.image}
+          />
+        </View>
       </View>
     </View>
   );
@@ -24,4 +29,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
   },
   image: { height: 30, width: 30 },
+  headercontainer: { flexDirection: 'row', justifyContent: 'space-between' },
+  addtext: { top: 10, fontFamily: 'NovaFlat-Regular', color: 'white' },
+  imagecontainer: { backgroundColor: '#f6f9ff', padding: 5, borderRadius: 16 },
 });
