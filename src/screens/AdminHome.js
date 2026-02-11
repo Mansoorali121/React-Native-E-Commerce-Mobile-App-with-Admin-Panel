@@ -35,13 +35,14 @@ const AdminHome = () => {
         style={{ marginHorizontal: 10 }}
         data={orderData}
         keyExtractor={item => item.id}
-        renderItem={({ item }) => <Adminordercard
-        address={item.address}
-        Number={item.Number}
-        title={item.title}
-        price={item.price}
-        
-        />}
+        renderItem={({ item }) => (
+          <Adminordercard
+            address={item.address}
+            Number={item.Number}
+            title={item.title}
+            price={item.price}
+          />
+        )}
       />
     </View>
   );
