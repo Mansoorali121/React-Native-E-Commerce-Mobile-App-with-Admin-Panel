@@ -31,5 +31,5 @@ const styles = StyleSheet.create({
   image: { height: 30, width: 30 },
   headercontainer: { flexDirection: 'row', justifyContent: 'space-between' },
   addtext: { top: 10, fontFamily: 'NovaFlat-Regular', color: 'white' },
-  imagecontainer: { backgroundColor: '#f6f9ff', padding: 5, borderRadius: 16 },
+  imagecontainer: { backgroundColor: '#f6f9ff', padding: 5, borderRadius: 20 },
 });
