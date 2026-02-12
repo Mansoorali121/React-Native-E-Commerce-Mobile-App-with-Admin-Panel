@@ -1,8 +1,8 @@
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Alert, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import React, { useState } from 'react';
 import MyButton from '../components/MyButton';
 import MytextInput from './MytextInput';
-import firestore from "@react-native-firebase/firestore"
+import firestore from '@react-native-firebase/firestore';
 const AddNewProductCard = () => {
   // Firebase Data Add State
   const [name, setName] = useState('');
@@ -12,9 +12,32 @@ const AddNewProductCard = () => {
   const [Image, setImage] = useState('');
 
   // Firebase Function to Add Data
-  const AddData = async() => {
-    const Data = firestore().collection
-  }
+  const AddData = async () => {
+    try {
+      firestore()
+        .collection('clothes')
+        .add({
+          title: name,
+          description: description,
+          price: Number(Price),
+          rating: Number(Rating),
+          image_url: Image,
+          createdAt: firestore.FieldValue.serverTimestamp(),
+        });
+      Alert.alert('Items Saved Successfully:');
+    } catch (error) {
+      Alert.alert('Error occured', error);
+    }
+  };
+  // Cancel Handle Click
+  const handleCancel = () => {
+    setName('');
+    setDescription('');
+    setPrice('');
+    setRating('');
+    setImage('');
+  };
+
   return (
     <View style={styles.container}>
       <View style={{ marginTop: 10 }}>
@@ -46,10 +69,15 @@ const AddNewProductCard = () => {
       </View>
       <View style={styles.btncontainer}>
         <TouchableOpacity style={styles.savebtn}>
-          <Text style={styles.saveproduct}> Save Product</Text>
+          <Text style={styles.saveproduct} onPress={AddData}>
+            {' '}
+            Save Product
+          </Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.cancelbtn}>
-          <Text style={styles.calcelProduct}>Cancel</Text>
+          <Text style={styles.calcelProduct} onPress={handleCancel}>
+            Cancel
+          </Text>
         </TouchableOpacity>
       </View>
     </View>
