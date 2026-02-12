@@ -24,6 +24,11 @@ const AddNewProductCard = () => {
           image_url: Image,
           createdAt: firestore.FieldValue.serverTimestamp(),
         });
+      setName('');
+      setDescription('');
+      setPrice('');
+      setRating('');
+      setImage('');
       Alert.alert('Items Saved Successfully:');
     } catch (error) {
       Alert.alert('Error occured', error);
