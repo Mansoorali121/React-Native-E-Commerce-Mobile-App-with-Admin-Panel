@@ -1,10 +1,11 @@
 import { StyleSheet, Text, View } from 'react-native';
-import React from 'react';
+import React, { useState } from 'react';
 import MytextInput from '../components/MytextInput';
 import AddProductHeader from '../components/AddProductHeader';
 import AddNewProductCard from '../components/AddNewProductCard';
 
 const AddProduct = () => {
+
   return (
     <View style={styles.container}>
       <AddProductHeader />

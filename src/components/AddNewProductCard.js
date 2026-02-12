@@ -1,17 +1,48 @@
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import React from 'react';
+import React, { useState } from 'react';
 import MyButton from '../components/MyButton';
 import MytextInput from './MytextInput';
-
+import firestore from "@react-native-firebase/firestore"
 const AddNewProductCard = () => {
+  // Firebase Data Add State
+  const [name, setName] = useState('');
+  const [description, setDescription] = useState('');
+  const [Price, setPrice] = useState('');
+  const [Rating, setRating] = useState('');
+  const [Image, setImage] = useState('');
+
+  // Firebase Function to Add Data
+  const AddData = async() => {
+    const Data = firestore().collection
+  }
   return (
     <View style={styles.container}>
       <View style={{ marginTop: 10 }}>
-        <MytextInput placeholder="Product Name" />
-        <MytextInput placeholder="Description" />
-        <MytextInput placeholder="Price" />
-        <MytextInput placeholder="rating" />
-        <MytextInput placeholder="Image Url" />
+        <MytextInput
+          placeholder="Product Name"
+          value={name}
+          onChangeText={setName}
+        />
+        <MytextInput
+          placeholder="Description"
+          value={description}
+          onChangeText={setDescription}
+        />
+        <MytextInput
+          placeholder="Price"
+          value={Price}
+          onChangeText={setPrice}
+        />
+        <MytextInput
+          placeholder="rating"
+          value={Rating}
+          onChangeText={setRating}
+        />
+        <MytextInput
+          placeholder="Image Url"
+          value={Image}
+          onChangeText={setImage}
+        />
       </View>
       <View style={styles.btncontainer}>
         <TouchableOpacity style={styles.savebtn}>
